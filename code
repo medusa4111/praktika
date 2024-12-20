@@ -1,0 +1,51 @@
+#include <iostream> // Подключаем библиотеку iostream для работы с cin и cout
+#include <string> // Подключаем библиотеку string для работы со строками
+using namespace std; // Используем пространство имён
+
+class Student {
+private:
+    string name;
+    int age;
+    float gpa;
+
+public:
+    // Конструктор
+    Student(string n, int a, float g) : name(n), age(a), gpa(g) {}
+
+    // Метод установкии
+    void setName(string n) { name = n; }
+    void setAge(int a) { age = a; }
+    void setGpa(float g) { gpa = g; }
+
+    // метод получения
+    string getName() { return name; }
+    int getAge() { return age; }
+    float getGpa() { return gpa; }
+
+    // Вывод
+    void displayInfo() {
+        cout << "Имя: " << name << ", Возраст: " << age << ", Средний балл: " << gpa << endl;
+    }
+
+    // Оценка успеваемости
+    string getPerformance() {
+        if (gpa >= 8) return "Отлично";
+        else if (gpa >= 6) return "Хорошо";
+        else return "Удовлетворительно";
+    }
+};
+
+int main() {
+    // Создание объектов
+    Student student1("Иван", 20, 8.5);
+    Student student2("Анна", 19, 7.0);
+
+    // Вывод
+    student1.displayInfo();
+    cout << "Успеваемость: " << student1.getPerformance() << endl;
+
+    student2.displayInfo();
+    cout << "Успеваемость: " << student2.getPerformance() << endl;
+
+    return 0;
+}
